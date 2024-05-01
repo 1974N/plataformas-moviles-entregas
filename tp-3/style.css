@@ -1,0 +1,19 @@
+h1.titulo {
+    text-align: center;
+}
+body p{
+    font-family: serif;
+}
+body #primer-parrafo {
+    background-color: #cee;   
+}
+#primer-parrafo em {
+    color:#933;
+}
+p a {
+    outline: 1px solid #333;
+}
+html body p.fuente.parrafo{
+    opacity: 100%;
+    color:#000 !important
+}
