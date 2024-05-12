@@ -1,0 +1,13 @@
+.contenedor {
+    display:flex;
+    margin:1% 10px;
+}
+.btn-1 {
+    margin-right: 5px;
+}
+.btn-2 {
+    margin-right: 5px;
+}
+.btn-3 {
+    margin-left: 5px;
+}
