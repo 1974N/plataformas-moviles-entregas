@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Editor de Texto - DOM y JavaScript</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container my-1 my-sm-2 my-md-4 my-lg-5">
+        <h1>Editor de Texto</h1>
+        <div class="card">
+            <div class="card-body">
+                <h2>Texto</h2>
+
+                <p class="texto" id="texto">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec elementum auctor libero, vel imperdiet est. Etiam blandit facilisis ex, nec cursus metus pharetra quis. Fusce imperdiet nisl nibh, ac aliquet ante elementum vitae.</p>
+
+                <hr class="hr">
+
+                <h2>Opciones de Formato</h2>
+                <div class="row">
+                    <div class="col-12 col-md-4 my-1">
+                        <button id="btn-negrita" class="btn d-block w-100 btn-primary" data-formato="negrita">
+                            Bold (Negrita)
+                        </button>
+                    </div>
+                    <div class="col-12 col-md-4 my-1">
+                        <button id="btn-cursiva" class="btn d-block w-100 btn-primary" data-formato="cursiva">
+                            Italic (Cursiva)
+                        </button>
+                    </div>
+                    <div class="col-12 col-md-4 my-1">
+                        <button id="btn-subrayado" class="btn d-block w-100 btn-primary" data-formato="subrayado">
+                            Underline (Subrayado)
+                        </button>
+                        <br>
+                    </div>
+                    <div class="col-12 col-md-4 my-1">
+                        <button id="btn-color" class="btn d-block w-100 btn-primary" data-formato="color">
+                            Colour (Color)
+                        </button>
+                    </div>
+                    <div class="col-12 col-md-4 my-1">
+                    <div class="input-group">
+                        <button id="btn-texto" class="btn btn-primary" data-formato="texto">
+                        Modify (Modificar)
+                        </button>
+                    <input class="form-control" id="input-texto" type="text">
+                    </div>
+                    </div>
+                    <div class="col-12 col-md-4 my-1">
+                        <button id="btn-tamaño" class="btn d-block w-100 btn-primary" data-formato="tamaño">
+                            Size (Tamaño)
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+        /**
+         * funcionNegrita()
+         * esta función se va a llamar cuando el usuario selecciona la opción Bold (negrita).
+         */
+        function funcionNegrita() {
+            let elementoP = document.querySelector('#texto');
+            elementoP.classList.toggle('fw-bold');
+            let negritaBoton= document.querySelector('#btn-cursiva');
+            Boton.classList.toggle('active'); 
+        }
+
+        /**
+         * funcionCursiva()
+         * esta función se va a llamar cuando el usuario selecciona la opción Bold (negrita).
+         */
+        function funcionCursiva() {
+            let elementoP = document.querySelector('#texto');
+            elementoP.classList.toggle('fst-italic');
+            let Boton = document.querySelector('#btn-cursiva');
+            Boton.classList.toggle('active'); 
+        }
+
+        /**
+         * funcionSubrayado()
+         * esta función se va a llamar cuando el usuario selecciona la opción Bold (negrita).
+         */
+        function funcionSubrayado() {
+           
+            texto.classList.toggle('text-decoration-underline');
+            let subrayadoBoton = document.querySelector('#btn-subrayado');
+            subrayadoBoton.classList.toggle('active'); 
+        }
+        function funcionColor() {
+            texto.classList.toggle('text-danger');
+            let colorBoton = document.querySelector('#btn-color');
+            colorBoton.classList.toggle('active');
+        }
+        function funcionTexto(){
+            let NuevoTexto = document.querySelector("#input-texto").value
+            texto.innerText = NuevoTexto;
+            let Boton = document.querySelector('#btn-texto');
+            Boton.classList.toggle('active');
+        }
+        function funcionTamaño(){
+            texto.classList.toggle('fs-1');
+            let tamañoBoton = document.querySelector('#btn-tamaño');
+            tamañoBoton.classList('active');
+
+        }
+
+        function handlerBoton(e) {
+            const funcionBoton = e.target.dataset.formato;
+            switch (funcionBoton) {
+                case 'negrita':
+                    funcionNegrita();
+                    break;
+                case 'cursiva':
+                    funcionCursiva();
+                    break;
+                case 'subrayado':
+                    funcionSubrayado();
+                    break;
+                case 'color':
+                    funcionColor();
+                    break;
+                case 'texto':
+                    funcionTexto();
+                    break;
+                case 'tamaño':
+                    funcionTamaño();
+                    break;
+            }
+        }
+        document.querySelectorAll('button.btn').forEach(e => e.addEventListener('click', handlerBoton));
+    </script>
+</body>
+</html>
+2024 | Plataformas Móviles
+
